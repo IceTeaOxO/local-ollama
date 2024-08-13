@@ -1,0 +1,17 @@
+services:
+  ollama:
+    container_name: ollama
+    image: ollama/ollama  # 如果需要，替换为特定的 Ollama 版本
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            capabilities: ["gpu"]
+            count: all  # 根据需要调整 GPU 的数量
+    volumes:
+      - ollama:/root/.ollama
+    restart: always
+
+volumes:
+  ollama:
