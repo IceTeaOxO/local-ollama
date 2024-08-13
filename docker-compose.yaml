@@ -11,6 +11,8 @@ services:
             count: all  # 根据需要调整 GPU 的数量
     volumes:
       - ollama:/root/.ollama
+    ports:
+      - "11434:11434"
     restart: always
 
 volumes:
